@@ -1,11 +1,11 @@
 import gzip
 
 
-class ZipScore:
+class CompressionScore:
     """
-    GZIP finds patterns data in order to compress the data. This method produces
-    a text similarity score by using GZIP to find similar patterns in the compared
-    documents
+    Compression (in this case GZIP) finds patterns data in order to compress the data.
+    This method produces a text similarity score by using GZIP to find similar patterns
+    in the compared documents
     """
 
     def __init__(self, reference):
