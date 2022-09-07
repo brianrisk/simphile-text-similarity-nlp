@@ -18,13 +18,13 @@ setup(
     description="Text similarity calculation",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    url="https://medium-multiply.readthedocs.io/",
+    url="https://github.com/brianrisk/simphile",
     author="Brian Risk",
     author_email="geneffects@gmail.com",
     license="MIT",
     classifiers=[
         "Intended Audience :: Developers",
-        "License :: OSI Approved :: Apache Software License",
+        "License :: OSI Approved :: MIT License",
         "Programming Language :: Python",
         "Programming Language :: Python :: 3",
         "Programming Language :: Python :: 3.6",
@@ -35,25 +35,4 @@ setup(
     ],
     packages=["simphile"],
     include_package_data=True
-)
-
-classifiers = [
-    'Development Status :: 3 - Alpha',
-    'Intended Audience :: Developers',
-    'Operating System :: MacOS',
-    'License :: OSI Approved :: Apache Software License',
-    'Programming Language :: Python :: 3',
-]
-setup(
-    name='',
-    version='0.0.1',
-    description='a calculator with some advanced functions',
-    long_description=open('README.md').read() + '\n\n' + open('CHANGELOG.txt').read(),
-    url='',
-    author='',
-    author_email='',
-    license='MIT',
-    classifiers=classifiers,
-    keywords='',
-    packages=find_packages(),
 )
