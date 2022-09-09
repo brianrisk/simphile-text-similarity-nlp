@@ -1,16 +1,11 @@
-from sets import intersect, minus
+from simphile.sets import intersect, minus
 
 
 def jaccard(list_a, list_b):
+    assert len(list_a) > 0 or len(list_b > 0), "at least one list needs to have elements"
     intersected = intersect(list_a, list_b)
     combined = list_a + list_b
-    # did not use the union function for effeciency.  Union also calculates intersection,
+    # did not use the union function for efficiency in sets.  Union also calculates intersection,
     # so we don't want to duplicate that processing
     unioned = minus(combined, intersected)
     return len(intersected) / len(unioned)
-
-
-
-a = "hey you people over there".split(" ")
-b = "you people over what".split(" ")
-jaccard(a, b)

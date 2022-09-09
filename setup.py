@@ -34,5 +34,6 @@ setup(
         "Operating System :: OS Independent"
     ],
     packages=["simphile"],
-    include_package_data=True
+    include_package_data=True,
+    install_requires=["scipy"]
 )
