@@ -11,7 +11,7 @@ class TestCompressionSimilarity(TestCase):
         first = cs.score(a)
         second = cs.score("sldfjldkjfd")
         third = cs.score(a)
-        # scoring should be same regardles of intermediate, unrelated score.
+        # scoring should be same regardless of intermediate, unrelated score.
         # this tests that the intermediate compression state of the reference
         # is maintained
         self.assertEqual(first, third)

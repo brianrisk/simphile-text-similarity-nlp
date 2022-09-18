@@ -5,7 +5,7 @@ class NaiveBayes:
 
     def __init__(self, prior_total, prior_positives):
         """
-        Initializes the Bayesian calculator with priors
+        Initializes the Bayesian calculator with priors.
 
         :param prior_total: The total N.  In the spam example, this is the total number of emails
         :param prior_positives: The number of positives.  In the spam example, this is the count of spam emails

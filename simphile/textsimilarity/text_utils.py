@@ -10,8 +10,8 @@ common_english_words = [
 
 
 # a common method to apply to both web and the training data
-def clean(text):
-    text = regex.sub(' ', text).lower()
+def only_alpha_numeric(text):
+    text = regex.sub(' ', text)
     # removing multiple spaces
     text = re.sub(' +', ' ', text)
     return text

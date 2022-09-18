@@ -1,6 +1,6 @@
 import unittest
 
-from simphile.naivebayes import NaiveBayes
+from simphile.naive_bayes import NaiveBayes
 
 
 class TestNaiveBayes(unittest.TestCase):
@@ -11,7 +11,6 @@ class TestNaiveBayes(unittest.TestCase):
         nb.set_observation_significance_threshold(None)
         nb.add_observation(400, 300)
         nb.add_observation(100, 90)
-        print(nb.calculate_probability())
         # worked example is within a small fraction of what was calculated
         # (avoiding test being false due to floating-point inaccuracy)
         self.assertLess(
