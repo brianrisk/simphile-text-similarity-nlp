@@ -19,21 +19,26 @@ class JaccardSimilarity:
 
     def score(self, comparison):
         """
-        Producing a similarity score of the comparison string to the reference string supplied
-        in the initialization
+        Using the Jaccard Index, produces a similarity score of the comparison string
+        to the reference string supplied in the initialization
 
         :param comparison:
 
         :return: decimal between 0 and 1 from lowest to highest
         """
-        return jaccard_similarity(self.reference, self.text_processor.tokenize(comparison))
+        list_a = self.reference
+        list_b = self.text_processor.tokenize(comparison)
+        assert len(list_a) > 0 or len(list_b > 0), "at least one list needs to have elements"
+        intersected = intersect(list_a, list_b)
+        combined = list_a + list_b
+        # did not use the union function for efficiency in sets.  Union also calculates intersection,
+        # so we don't want to duplicate that processing
+        unioned = minus(combined, intersected)
+        return len(intersected) / len(unioned)
 
 
-def jaccard_similarity(list_a, list_b):
-    assert len(list_a) > 0 or len(list_b > 0), "at least one list needs to have elements"
-    intersected = intersect(list_a, list_b)
-    combined = list_a + list_b
-    # did not use the union function for efficiency in sets.  Union also calculates intersection,
-    # so we don't want to duplicate that processing
-    unioned = minus(combined, intersected)
-    return len(intersected) / len(unioned)
+
+def jaccard_similarity(string_a, string_b):
+    obj = JaccardSimilarity(string_a)
+    return obj.score(string_b)
+

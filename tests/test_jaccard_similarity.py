@@ -6,13 +6,13 @@ from simphile.textsimilarity.jaccard_similarity import jaccard_similarity
 class TestJaccardSimilarity(TestCase):
 
     def test_jaccard(self):
-        many_cats = "cat cat cat dog".split(" ")
-        many_dogs = "dog dog dog cat".split(" ")
-        some_cats = "cat cat dog".split(" ")
-        some_dogs = "dog dog cat".split(" ")
-        only_cats = "cat cat cat".split(" ")
-        only_dogs = "dog dog dog".split(" ")
-        no_pets = []
+        many_cats = "cat cat cat dog"
+        many_dogs = "dog dog dog cat"
+        some_cats = "cat cat dog"
+        some_dogs = "dog dog cat"
+        only_cats = "cat cat cat"
+        only_dogs = "dog dog dog"
+        no_pets = ""
         # worked examples
         self.assertEqual(
             jaccard_similarity(many_cats, many_dogs),

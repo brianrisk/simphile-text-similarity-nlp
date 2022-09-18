@@ -8,7 +8,7 @@ class TextProcessor:
     def __init__(self):
         self.lowercase = True
         self.only_alpha_numeric = True
-        self.adjacent_pairs = True
+        self.adjacent_pairs = False
 
     def process(self, string):
         result = string
