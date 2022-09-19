@@ -51,9 +51,14 @@ class CompressionSimilarity:
                             + self.partially_compressed_reference_len
         compressed_comparison_len = len(zlib.compress(bytes(processed_comparison, 'utf-8')))
         ratio = compressed_concat_len / (compressed_comparison_len + self.compressed_reference_len)
+        # lowest ratio is about 0.5; normalizing
+        ratio = (ratio - 0.5) * 2.0
         # ratio is low when high similarity, so subtracting from 1 so that a number close to 1 is better
-        # TODO is lowest ratio 0.5?  should we normalize?
-        return 1.0 - ratio
+        score = 1.0 - ratio
+        # bounding between 1 and 0
+        score = min(max(score, 0), 1)
+        return score
+
 
 
 def compression_similarity(string_a, string_b):

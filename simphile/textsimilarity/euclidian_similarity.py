@@ -40,7 +40,6 @@ class EuclidianSimilarity:
             square = diff * diff
             sum += square
         distance = math.sqrt(sum)
-        print(f"disatance: {distance}")
         # the max distance may be sqrt(the number of unique tokens), normalizing
         return 1 - (distance / math.sqrt(len(keys)))
 
