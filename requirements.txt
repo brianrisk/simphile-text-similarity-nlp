@@ -1,2 +1,7 @@
-setuptools~=60.2.0
-scipy~=1.9.1
+Jinja2==3.1.2
+Mako==1.2.2
+Markdown==3.4.1
+MarkupSafe==2.1.1
+numpy==1.23.3
+pdoc3==0.10.0
+scipy==1.9.1
