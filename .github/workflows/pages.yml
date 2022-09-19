@@ -14,7 +14,7 @@ permissions:
   contents: read
 
 jobs:
-  # Build the documentation and upload the static HTML files as an artifact.
+  # Build the documentation and upload the static HTML files as an artifact
   build:
     runs-on: ubuntu-latest
     steps:
