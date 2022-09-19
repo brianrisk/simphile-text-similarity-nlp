@@ -12,7 +12,7 @@
 Sim•phile = "the love of similarities"
 
 The aim is to proved easy access to text similairty metods that are language-agnostic and (ideally) much 
-faster in execution time than the common methods that employ text embeddings.
+faster in execution time than methods that employ text embeddings.
 
 ### Use Cases:
 * When speed is required
@@ -24,6 +24,9 @@ faster in execution time than the common methods that employ text embeddings.
 ### Usage:
 
 ```pip install simphile```
+
+## Documentation
+[Simphile Documentation](https://brianrisk.github.io/simphile/)
 
 ## Brief Explanations
 
@@ -42,7 +45,6 @@ Further Reading
 
 ### Jaccard Similarity
 ![Jaccard Formula](https://wikimedia.org/api/rest_v1/media/math/render/svg/eaef5aa86949f49e7dc6b9c8c3dd8b233332c9e7)
-[Jaccard Index on Wikipedia](https://en.wikipedia.org/wiki/Jaccard_index)
 
 All of the write-ups I have seen for Jaccard get it wrong in the implementation.  They all use set() data structures.
 At a quick glance this makes because the method uses set arithmetic (e.g. union, intersection).  However, sets don't allow duplicate elements,
@@ -51,8 +53,10 @@ types of pet owners, but using sets would see that as {"dog", "cat"} and another
 
 This imeplementation of Jaccard uses set arithmetic on lists.
 
-vote up this on Stack Overflow:
+vote up this answer on Stack Overflow:
 https://stackoverflow.com/questions/46975929/how-can-i-calculate-the-jaccard-similarity-of-two-lists-containing-strings-in-py
+
+[Jaccard Index on Wikipedia](https://en.wikipedia.org/wiki/Jaccard_index)
 
 
 ### Euclidian Similarity
