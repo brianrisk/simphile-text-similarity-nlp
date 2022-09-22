@@ -14,9 +14,13 @@ Sim•phile = "the love of similarities"
 The aim is to proved easy access to text similairty metods that are language-agnostic and (ideally) much 
 faster in execution time than methods that employ text embeddings.
 
+* **Compression Similairty** – leverages the pattern recognition of compression algorithms
+* **Euclidian Similarity** – Treating text like points in multi-dimensional space and calculating their closeness
+* **Jaccard Similairy** – Texts are more similar the more their words overlap
+
 ### Use Cases:
 * When speed is required
-  * as fast pre-filters of results to reduce the set then fed to more CPU-intensive methods
+  * as fast pre-filters of results to reduce the set then fed to more CPU-intensive methods (e.g. embeddings)
 * when language is unknown
 * non-language comparisons (e.g. URL clustering)
 * language detection (e.g. compare a text to Spanish, English, French, etc. lexicons and return match with highest score)
@@ -26,7 +30,11 @@ faster in execution time than methods that employ text embeddings.
 ```pip install simphile```
 
 ## Documentation
-[Simphile Documentation](https://brianrisk.github.io/simphile/)
+[Simphile text similarity documentation](https://brianrisk.github.io/simphile/textsimilarity/index.html)
+
+## E-Z ways to help
+* Give this repo a ⭐️
+* [Vote up this answer](https://stackoverflow.com/questions/46975929/how-can-i-calculate-the-jaccard-similarity-of-two-lists-containing-strings-in-py) on Stack Overflow!
 
 ## Brief Explanations
 
@@ -39,7 +47,7 @@ akin to this pseudocode example:
 
 ```length(compress(concatenate(text_a, text_b))) / (length(compress(text_a)) + length(compress(text_b)))```
 
-Further Reading
+Further Reading:
 * ["The Similarity Metric"](https://ieeexplore.ieee.org/abstract/document/1362909) - the origin of this method
 * [a nice writeup](https://maxhalford.github.io/blog/text-classification-by-compression/)
 
@@ -53,10 +61,9 @@ types of pet owners, but using sets would see that as {"dog", "cat"} and another
 
 This imeplementation of Jaccard uses set arithmetic on lists.
 
-vote up this answer on Stack Overflow:
-https://stackoverflow.com/questions/46975929/how-can-i-calculate-the-jaccard-similarity-of-two-lists-containing-strings-in-py
-
-[Jaccard Index on Wikipedia](https://en.wikipedia.org/wiki/Jaccard_index)
+Further Reading:
+* [Vote up this answer](https://stackoverflow.com/questions/46975929/how-can-i-calculate-the-jaccard-similarity-of-two-lists-containing-strings-in-py) on Stack Overflow!
+* [Jaccard Index on Wikipedia](https://en.wikipedia.org/wiki/Jaccard_index)
 
 
 ### Euclidian Similarity
