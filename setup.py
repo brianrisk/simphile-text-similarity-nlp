@@ -15,7 +15,7 @@ with open(path.join(HERE, 'README.md'), encoding='utf-8') as f:
 setup(
     name="simphile",
     version="0.1.1",
-    description="Text similarity calculation",
+    description="NLP text similarity calculation",
     long_description=long_description,
     long_description_content_type="text/markdown",
     url="https://github.com/brianrisk/simphile",

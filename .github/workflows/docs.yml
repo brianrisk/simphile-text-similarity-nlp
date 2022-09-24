@@ -1,13 +1,21 @@
-name: website
+name: Documentation
 
 # build the documentation whenever there are new commits on main
-on:
-  push:
-    branches:
-      - master
+#on:
+#  push:
+#    branches:
+#      - master
     # Alternative: only build for tags.
     # tags:
     #   - '*'
+
+# build the documentation whenever the tests pass
+on:
+  workflow_run:
+    workflows: ["Tests"]
+    branches: [main]
+    types:
+      - completed
 
 # security: restrict permissions for CI jobs.
 permissions:
