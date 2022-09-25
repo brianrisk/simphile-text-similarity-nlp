@@ -1,7 +1,12 @@
 name: Publish Docs
 
-# build the documentation whenever pushed
-on: [push]
+# build the documentation whenever tests pass
+on:
+  workflow_run:
+    workflows: ["Tests"]
+    branches: [master]
+    types:
+      - completed
 
 # security: restrict permissions for CI jobs.
 permissions:
