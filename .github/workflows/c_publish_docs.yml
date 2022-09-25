@@ -1,18 +1,9 @@
-name: Documentation
+name: Publish Docs
 
-# build the documentation whenever there are new commits on main
-#on:
-#  push:
-#    branches:
-#      - master
-    # Alternative: only build for tags.
-    # tags:
-    #   - '*'
-
-# build the documentation whenever the tests pass
+# build the documentation whenever the package is published
 on:
   workflow_run:
-    workflows: ["Tests"]
+    workflows: ["Publish Package"]
     branches: [main]
     types:
       - completed
