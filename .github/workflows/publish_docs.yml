@@ -1,6 +1,6 @@
 name: Publish Docs
 
-# build the documentation whenever the package is published
+# build the documentation whenever pushed
 on: [push]
 
 # security: restrict permissions for CI jobs.
