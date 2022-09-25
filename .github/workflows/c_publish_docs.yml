@@ -4,7 +4,7 @@ name: Publish Docs
 on:
   workflow_run:
     workflows: ["Publish Package"]
-    branches: [main]
+    branches: [master, develop]
     types:
       - completed
 

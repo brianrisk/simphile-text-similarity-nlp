@@ -3,6 +3,7 @@ name: Publish Package
 on:
   workflow_run:
     workflows: ["Tests"]
+    branches: [master, develop]
     types:
       - completed
 
