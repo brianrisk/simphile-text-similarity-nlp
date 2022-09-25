@@ -1,12 +1,7 @@
 name: Publish Docs
 
 # build the documentation whenever the package is published
-on:
-  workflow_run:
-    workflows: ["Publish Package"]
-    branches: [master, develop]
-    types:
-      - completed
+on: [push]
 
 # security: restrict permissions for CI jobs.
 permissions:
