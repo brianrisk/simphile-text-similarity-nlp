@@ -1,14 +1,5 @@
-from . import \
-    compression_similarity,\
-    euclidian_similarity, \
-    jaccard_similarity, \
-    text_processor,\
-    text_utils
-
-__all__ = [
-    compression_similarity,
-    euclidian_similarity,
-    jaccard_similarity,
-    text_processor,
-    text_utils
-]
+from compression_similarity import CompressionSimilarity, compression_similarity
+from euclidian_similarity import EuclidianSimilarity, euclidian_similarity
+from jaccard_similarity import JaccardSimilarity, jaccard_similarity
+from text_processor import TextProcessor
+import text_utils
