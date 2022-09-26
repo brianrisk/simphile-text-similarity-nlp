@@ -1,6 +1,6 @@
 from unittest import TestCase
 
-from simphile.textsimilarity.euclidian_similarity import euclidian_similarity
+from simphile.euclidian_similarity import euclidian_similarity
 
 
 class TestEuclidianSimilarity(TestCase):

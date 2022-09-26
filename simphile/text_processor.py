@@ -1,6 +1,6 @@
 import math
 
-from simphile.textsimilarity import text_utils
+from . import text_utils
 
 
 class TextProcessor:

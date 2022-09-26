@@ -1,6 +1,6 @@
 from unittest import TestCase
 
-from simphile.textsimilarity.jaccard_similarity import jaccard_similarity
+from simphile.jaccard_similarity import jaccard_similarity
 
 
 class TestJaccardSimilarity(TestCase):

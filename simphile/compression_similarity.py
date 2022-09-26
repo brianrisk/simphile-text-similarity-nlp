@@ -1,6 +1,6 @@
 import zlib
 
-from simphile.textsimilarity.text_processor import TextProcessor
+from simphile.text_processor import TextProcessor
 
 
 class CompressionSimilarity:

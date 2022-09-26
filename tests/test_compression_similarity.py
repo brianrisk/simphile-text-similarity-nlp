@@ -1,6 +1,6 @@
 from unittest import TestCase
 
-from simphile.textsimilarity.compression_similarity import CompressionSimilarity
+from simphile.compression_similarity import CompressionSimilarity
 
 
 class TestCompressionSimilarity(TestCase):

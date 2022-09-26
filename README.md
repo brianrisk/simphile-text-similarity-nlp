@@ -31,7 +31,7 @@ faster in execution time than methods that employ text embeddings.
 ```pip install simphile```
 
 ## Documentation
-[Simphile text similarity documentation](https://brianrisk.github.io/simphile/textsimilarity/index.html)
+[Simphile text similarity documentation](https://brianrisk.github.io/simphile/index.html)
 
 ## E-Z ways to help
 * Give this repo a ⭐️

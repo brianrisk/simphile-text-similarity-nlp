@@ -1,6 +1,6 @@
 import math
 
-from simphile.textsimilarity.text_processor import TextProcessor
+from simphile.text_processor import TextProcessor
 
 
 class EuclidianSimilarity:
