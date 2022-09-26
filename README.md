@@ -10,7 +10,6 @@
 
 </div>
 
-## Intro
 Sim•phile = "the love of similarities"
 
 The aim is to proved easy access to text similairty metods that are language-agnostic and (ideally) much 

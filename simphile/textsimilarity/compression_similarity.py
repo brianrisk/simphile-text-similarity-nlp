@@ -60,7 +60,6 @@ class CompressionSimilarity:
         return score
 
 
-
 def compression_similarity(string_a, string_b):
     obj = CompressionSimilarity(string_a)
     return obj.score(string_b)

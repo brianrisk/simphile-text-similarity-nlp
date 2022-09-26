@@ -37,7 +37,6 @@ class JaccardSimilarity:
         return len(intersected) / len(unioned)
 
 
-
 def jaccard_similarity(string_a, string_b):
     obj = JaccardSimilarity(string_a)
     return obj.score(string_b)
