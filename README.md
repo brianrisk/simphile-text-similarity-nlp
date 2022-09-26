@@ -4,7 +4,9 @@
 **Python Text Similarity NLP Libray**
 
 [![License](https://img.shields.io/github/license/brianrisk/simphile)](https://opensource.org/licenses/MIT)
-![master passing](https://github.com/brianrisk/simphile/actions/workflows/test.yml/badge.svg?branch=master)
+![master passing](https://github.com/brianrisk/simphile/actions/workflows/tests.yml/badge.svg?branch=master)
+![master passing](https://github.com/brianrisk/simphile/actions/workflows/publish_package.yml/badge.svg?branch=master)
+![master passing](https://github.com/brianrisk/simphile/actions/workflows/publish_docs.yml/badge.svg?branch=master)
 
 </div>
 
