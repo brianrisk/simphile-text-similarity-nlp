@@ -5,3 +5,4 @@ build
 dist
 simphile.egg-info
 testing.py
+docs
