@@ -1,0 +1,979 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<meta name="generator" content="pdoc 0.10.0" />
+<title>simphile API documentation</title>
+<meta name="description" content="Install
+```pip install simphile```
+About
+Sim•phile = &#34;the love of similarities&#34; …" />
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
+<link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/github.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js" integrity="sha256-Uv3H6lx7dJmRfRvH8TH6kJD1TSK1aFcwgx+mdg3epi8=" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => hljs.initHighlighting())</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Package <code>simphile</code></h1>
+</header>
+<section id="section-intro">
+<h2 id="install">Install</h2>
+<p><code>pip install simphile</code></p>
+<h2 id="about">About</h2>
+<p>Sim•phile = "the love of similarities"</p>
+<p>The aim is to proved easy access to text similairty metods that are language-agnostic and (ideally) much
+faster in execution time than methods that employ text embeddings.</p>
+<ul>
+<li><strong>Compression Similairty</strong> – leverages the pattern recognition of compression algorithms</li>
+<li><strong>Euclidian Similarity</strong> – Treating text like points in multi-dimensional space and calculating their closeness</li>
+<li><strong>Jaccard Similairy</strong> – Texts are more similar the more their words overlap</li>
+</ul>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">&#34;&#34;&#34;
+## Install
+```pip install simphile```
+## About
+Sim•phile = &#34;the love of similarities&#34;
+
+The aim is to proved easy access to text similairty metods that are language-agnostic and (ideally) much
+faster in execution time than methods that employ text embeddings.
+
+* **Compression Similairty** – leverages the pattern recognition of compression algorithms
+* **Euclidian Similarity** – Treating text like points in multi-dimensional space and calculating their closeness
+* **Jaccard Similairy** – Texts are more similar the more their words overlap
+
+&#34;&#34;&#34;
+from . import sets
+from . import text_utils
+from .text_processor import TextProcessor
+from .naive_bayes import NaiveBayes
+from .compression_similarity import compression_similarity, CompressionSimilarity
+from .euclidian_similarity import euclidian_similarity, EuclidianSimilarity
+from .jaccard_similarity import jaccard_similarity, JaccardSimilarity
+
+__all__ = [
+    &#34;sets&#34;,
+    &#34;text_utils&#34;,
+    &#34;TextProcessor&#34;,
+    &#34;NaiveBayes&#34;,
+    &#34;compression_similarity&#34;,
+    &#34;CompressionSimilarity&#34;,
+    &#34;euclidian_similarity&#34;,
+    &#34;EuclidianSimilarity&#34;,
+    &#34;jaccard_similarity&#34;,
+    &#34;JaccardSimilarity&#34;
+]</code></pre>
+</details>
+</section>
+<section>
+<h2 class="section-title" id="header-submodules">Sub-modules</h2>
+<dl>
+<dt><code class="name"><a title="simphile.naive_bayes" href="naive_bayes.html">simphile.naive_bayes</a></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt><code class="name"><a title="simphile.sets" href="sets.html">simphile.sets</a></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt><code class="name"><a title="simphile.text_processor" href="text_processor.html">simphile.text_processor</a></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt><code class="name"><a title="simphile.text_utils" href="text_utils.html">simphile.text_utils</a></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-functions">Functions</h2>
+<dl>
+<dt id="simphile.compression_similarity"><code class="name flex">
+<span>def <span class="ident">compression_similarity</span></span>(<span>string_a, string_b)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def compression_similarity(string_a, string_b):
+    obj = CompressionSimilarity(string_a)
+    return obj.score(string_b)</code></pre>
+</details>
+</dd>
+<dt id="simphile.euclidian_similarity"><code class="name flex">
+<span>def <span class="ident">euclidian_similarity</span></span>(<span>string_a, string_b)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def euclidian_similarity(string_a, string_b):
+    obj = EuclidianSimilarity(string_a)
+    return obj.score(string_b)</code></pre>
+</details>
+</dd>
+<dt id="simphile.jaccard_similarity"><code class="name flex">
+<span>def <span class="ident">jaccard_similarity</span></span>(<span>string_a, string_b)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def jaccard_similarity(string_a, string_b):
+    obj = JaccardSimilarity(string_a)
+    return obj.score(string_b)</code></pre>
+</details>
+</dd>
+</dl>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="simphile.CompressionSimilarity"><code class="flex name class">
+<span>class <span class="ident">CompressionSimilarity</span></span>
+<span>(</span><span>reference, text_processor=None)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Compression exploits patterns in data in order to compress the data.
+This method produces a text similarity score by using compression to find similar patterns
+in the compared documents</p>
+<p>Note, not symmetric.
+Scoring A against B is not always the same as B against A</p>
+<p>Initializes this scorer with the reference string.
+Allows for efficient processing when
+comparing one string to many other strings</p>
+<p>:param reference: the string to which all other strings will be compared</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class CompressionSimilarity:
+    &#34;&#34;&#34;
+    Compression exploits patterns in data in order to compress the data.
+    This method produces a text similarity score by using compression to find similar patterns
+    in the compared documents
+
+    Note, not symmetric.  Scoring A against B is not always the same as B against A
+    &#34;&#34;&#34;
+
+    def __init__(self, reference, text_processor=None):
+        &#34;&#34;&#34;
+        Initializes this scorer with the reference string.  Allows for efficient processing when
+        comparing one string to many other strings
+
+        :param reference: the string to which all other strings will be compared
+        &#34;&#34;&#34;
+        if text_processor is None:
+            self.text_processor = TextProcessor()
+        else:
+            self.text_processor = text_processor
+
+        # zlib docs: https://docs.python.org/3/library/zlib.html
+        # note: consider using https://pypi.org/project/compress/ if it can save in-progress compression
+        # using the highest compression to produce the best result
+        compress = zlib.compressobj(level=9)
+        processed_reference = self.text_processor.process(reference)
+        partially_compressed_reference = compress.compress(bytes(processed_reference, &#39;utf-8&#39;))
+        # Saving compression object with reference to avoid repeatedly compressing the same data
+        self.in_progress_compression = compress
+        self.partially_compressed_reference_len = len(partially_compressed_reference)
+        self.compressed_reference_len = len(partially_compressed_reference + compress.copy().flush())
+
+    def score(self, comparison):
+        &#34;&#34;&#34;
+        Producing a similarity score of the comparison string to the reference string supplied
+        in the initialization
+
+        :param comparison:
+
+        :return: decimal between 0 and 1 from lowest to highest
+        &#34;&#34;&#34;
+        compression_copy = self.in_progress_compression.copy()
+        processed_comparison = self.text_processor.process(comparison)
+        compressed_concat_len = len(compression_copy.compress(bytes(processed_comparison, &#39;utf-8&#39;))) \
+                            + len(compression_copy.flush()) \
+                            + self.partially_compressed_reference_len
+        compressed_comparison_len = len(zlib.compress(bytes(processed_comparison, &#39;utf-8&#39;)))
+        ratio = compressed_concat_len / (compressed_comparison_len + self.compressed_reference_len)
+        # lowest ratio is about 0.5; normalizing
+        ratio = (ratio - 0.5) * 2.0
+        # ratio is low when high similarity, so subtracting from 1 so that a number close to 1 is better
+        score = 1.0 - ratio
+        # bounding between 1 and 0
+        score = min(max(score, 0), 1)
+        return score</code></pre>
+</details>
+<h3>Methods</h3>
+<dl>
+<dt id="simphile.CompressionSimilarity.score"><code class="name flex">
+<span>def <span class="ident">score</span></span>(<span>self, comparison)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Producing a similarity score of the comparison string to the reference string supplied
+in the initialization</p>
+<p>:param comparison:</p>
+<p>:return: decimal between 0 and 1 from lowest to highest</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def score(self, comparison):
+    &#34;&#34;&#34;
+    Producing a similarity score of the comparison string to the reference string supplied
+    in the initialization
+
+    :param comparison:
+
+    :return: decimal between 0 and 1 from lowest to highest
+    &#34;&#34;&#34;
+    compression_copy = self.in_progress_compression.copy()
+    processed_comparison = self.text_processor.process(comparison)
+    compressed_concat_len = len(compression_copy.compress(bytes(processed_comparison, &#39;utf-8&#39;))) \
+                        + len(compression_copy.flush()) \
+                        + self.partially_compressed_reference_len
+    compressed_comparison_len = len(zlib.compress(bytes(processed_comparison, &#39;utf-8&#39;)))
+    ratio = compressed_concat_len / (compressed_comparison_len + self.compressed_reference_len)
+    # lowest ratio is about 0.5; normalizing
+    ratio = (ratio - 0.5) * 2.0
+    # ratio is low when high similarity, so subtracting from 1 so that a number close to 1 is better
+    score = 1.0 - ratio
+    # bounding between 1 and 0
+    score = min(max(score, 0), 1)
+    return score</code></pre>
+</details>
+</dd>
+</dl>
+</dd>
+<dt id="simphile.EuclidianSimilarity"><code class="flex name class">
+<span>class <span class="ident">EuclidianSimilarity</span></span>
+<span>(</span><span>reference, text_processor=None)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Initializes this scorer with the reference string.
+Allows for efficient processing when
+comparing one string to many other strings</p>
+<p>:param reference: the string to which all other strings will be compared</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class EuclidianSimilarity:
+
+    def __init__(self, reference, text_processor=None):
+        &#34;&#34;&#34;
+        Initializes this scorer with the reference string.  Allows for efficient processing when
+        comparing one string to many other strings
+
+        :param reference: the string to which all other strings will be compared
+        &#34;&#34;&#34;
+        if text_processor is None:
+            self.text_processor = TextProcessor()
+        else:
+            self.text_processor = text_processor
+
+        self.reference_frequencies = self.text_processor.normalized_frequencies(reference)
+
+    def score(self, comparison):
+        &#34;&#34;&#34;
+        Producing a similarity score of the comparison string to the reference string supplied
+        in the initialization
+
+        :param comparison:
+
+        :return: decimal between 0 and 1 from lowest to highest
+        &#34;&#34;&#34;
+        if len(comparison) == 0:
+            return 0
+        comparison_frequencies = self.text_processor.normalized_frequencies(comparison)
+        keys = set(list(comparison_frequencies.keys()) + list(self.reference_frequencies.keys()))
+        sum = 0
+        for key in keys:
+            a = self.reference_frequencies.get(key, 0.0)
+            b = comparison_frequencies.get(key, 0.0)
+            diff = a - b
+            square = diff * diff
+            sum += square
+        distance = math.sqrt(sum)
+        # the max distance may be sqrt(the number of unique tokens), normalizing
+        return 1 - (distance / math.sqrt(len(keys)))</code></pre>
+</details>
+<h3>Methods</h3>
+<dl>
+<dt id="simphile.EuclidianSimilarity.score"><code class="name flex">
+<span>def <span class="ident">score</span></span>(<span>self, comparison)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Producing a similarity score of the comparison string to the reference string supplied
+in the initialization</p>
+<p>:param comparison:</p>
+<p>:return: decimal between 0 and 1 from lowest to highest</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def score(self, comparison):
+    &#34;&#34;&#34;
+    Producing a similarity score of the comparison string to the reference string supplied
+    in the initialization
+
+    :param comparison:
+
+    :return: decimal between 0 and 1 from lowest to highest
+    &#34;&#34;&#34;
+    if len(comparison) == 0:
+        return 0
+    comparison_frequencies = self.text_processor.normalized_frequencies(comparison)
+    keys = set(list(comparison_frequencies.keys()) + list(self.reference_frequencies.keys()))
+    sum = 0
+    for key in keys:
+        a = self.reference_frequencies.get(key, 0.0)
+        b = comparison_frequencies.get(key, 0.0)
+        diff = a - b
+        square = diff * diff
+        sum += square
+    distance = math.sqrt(sum)
+    # the max distance may be sqrt(the number of unique tokens), normalizing
+    return 1 - (distance / math.sqrt(len(keys)))</code></pre>
+</details>
+</dd>
+</dl>
+</dd>
+<dt id="simphile.JaccardSimilarity"><code class="flex name class">
+<span>class <span class="ident">JaccardSimilarity</span></span>
+<span>(</span><span>reference, text_processor=None)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Initializes this scorer with the reference string.
+Allows for efficient processing when
+comparing one string to many other strings</p>
+<p>:param reference: the string to which all other strings will be compared</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class JaccardSimilarity:
+
+    def __init__(self, reference, text_processor=None):
+        &#34;&#34;&#34;
+        Initializes this scorer with the reference string.  Allows for efficient processing when
+        comparing one string to many other strings
+
+        :param reference: the string to which all other strings will be compared
+        &#34;&#34;&#34;
+        if text_processor is None:
+            self.text_processor = TextProcessor()
+        else:
+            self.text_processor = text_processor
+        self.reference = self.text_processor.tokenize(reference)
+
+    def score(self, comparison):
+        &#34;&#34;&#34;
+        Using the Jaccard Index, produces a similarity score of the comparison string
+        to the reference string supplied in the initialization
+
+        :param comparison:
+
+        :return: decimal between 0 and 1 from lowest to highest
+        &#34;&#34;&#34;
+        list_a = self.reference
+        list_b = self.text_processor.tokenize(comparison)
+        assert len(list_a) &gt; 0 or len(list_b &gt; 0), &#34;at least one list needs to have elements&#34;
+        intersected = intersect(list_a, list_b)
+        combined = list_a + list_b
+        # did not use the union function for efficiency in sets.  Union also calculates intersection,
+        # so we don&#39;t want to duplicate that processing
+        unioned = minus(combined, intersected)
+        return len(intersected) / len(unioned)</code></pre>
+</details>
+<h3>Methods</h3>
+<dl>
+<dt id="simphile.JaccardSimilarity.score"><code class="name flex">
+<span>def <span class="ident">score</span></span>(<span>self, comparison)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Using the Jaccard Index, produces a similarity score of the comparison string
+to the reference string supplied in the initialization</p>
+<p>:param comparison:</p>
+<p>:return: decimal between 0 and 1 from lowest to highest</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def score(self, comparison):
+    &#34;&#34;&#34;
+    Using the Jaccard Index, produces a similarity score of the comparison string
+    to the reference string supplied in the initialization
+
+    :param comparison:
+
+    :return: decimal between 0 and 1 from lowest to highest
+    &#34;&#34;&#34;
+    list_a = self.reference
+    list_b = self.text_processor.tokenize(comparison)
+    assert len(list_a) &gt; 0 or len(list_b &gt; 0), &#34;at least one list needs to have elements&#34;
+    intersected = intersect(list_a, list_b)
+    combined = list_a + list_b
+    # did not use the union function for efficiency in sets.  Union also calculates intersection,
+    # so we don&#39;t want to duplicate that processing
+    unioned = minus(combined, intersected)
+    return len(intersected) / len(unioned)</code></pre>
+</details>
+</dd>
+</dl>
+</dd>
+<dt id="simphile.NaiveBayes"><code class="flex name class">
+<span>class <span class="ident">NaiveBayes</span></span>
+<span>(</span><span>prior_total, prior_positives)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Initializes the Bayesian calculator with priors.</p>
+<p>:param prior_total: The total N.
+In the spam example, this is the total number of emails
+:param prior_positives: The number of positives.
+In the spam example, this is the count of spam emails</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class NaiveBayes:
+
+    def __init__(self, prior_total, prior_positives):
+        &#34;&#34;&#34;
+        Initializes the Bayesian calculator with priors.
+
+        :param prior_total: The total N.  In the spam example, this is the total number of emails
+        :param prior_positives: The number of positives.  In the spam example, this is the count of spam emails
+        &#34;&#34;&#34;
+        assert prior_positives &lt; prior_total, &#34;must have prior_positives &lt; prior_total&#34;
+        assert prior_positives &gt; 0, &#34;must have prior_positives &gt; 0&#34;
+        assert prior_total &gt; 0, &#34;must have prior_total &gt; 0&#34;
+
+        self.prior_positives = prior_positives
+        self.prior_total = prior_total
+        self.prior_negatives = prior_total - prior_positives
+        self.alpha = 1
+        self.observation_significance_threshold = 0.05
+        self.observations = []
+
+    def set_observation_significance_threshold(self, threshold):
+        &#34;&#34;&#34;
+        Any observation (aka test) that does not pass the p-value threshold will
+        not be incorporated into the final prediction.  P-values are calculated
+        with Fischer&#39;s Exact.  For example, if priors are 1000 with 300 positives,
+        an observation sample of 100 with 30 positives won&#39;t be added because
+        it does not differ significantly from the priors.  This keeps low value and
+        potentially noisy observations out. The default threshold is 0.05
+
+        :param threshold: can be a number between 0 and 0.5 or None
+
+        :return:
+        &#34;&#34;&#34;
+        assert threshold is None or threshold &gt; 0
+        assert threshold is None or threshold &lt; 0.5
+        self.observation_significance_threshold = threshold
+
+    def set_alpha(self, alpha):
+        &#34;&#34;&#34;
+        And alpha is a constant added to the positives to avoid zeros and generally smooths
+        the results to avoid low-N and noisy samples throwing things off.  Default alpha is 1.0.
+
+        :param alpha: a number greater than 0
+
+        :return:
+        &#34;&#34;&#34;
+        assert alpha &gt;= 0
+        self.alpha = alpha
+
+    def add_observation(self, total, positives):
+        &#34;&#34;&#34;
+        An observation is the total population and number of positives for a given category.  For example,
+        the total number of emails that contain &#34;money&#34; and the number of those emails that are spam.
+
+        :param total: the total population count in the observation.
+        For example the total number of emails that contain &#34;money&#34;
+
+        :param positives: the number of positives in the population.
+        For example the number of spam emails that contain &#34;money&#34;
+
+        :return: True or False based on if the observation was significantly different from the prior likelihood
+        &#34;&#34;&#34;
+        assert positives &lt;= total, &#34;must have positives &lt;= total&#34;
+        expectation = [self.prior_total, self.prior_positives]
+        observation = [total, positives]
+        table = [observation, expectation]
+        p_value = stats.fisher_exact(table)[1]
+        if self.observation_significance_threshold is None or p_value &lt;= self.observation_significance_threshold:
+            self.observations.append(observation)
+            return True   # observation added
+        else:
+            return False  # observation not added
+
+    def calculate_probability(self):
+        &#34;&#34;&#34;
+        Given all the observations, uses Naive Bayes to calculate the probability
+        ( 0 to 1) that a specific instance is true
+
+        :return: the probability ( 0 to 1) that a specific instance is true (e.g.
+        that a specific email is spam)
+        &#34;&#34;&#34;
+        prior_probability = self.prior_positives / self.prior_total
+        alpha_denominator = self.alpha / prior_probability
+        positive_score = prior_probability
+        negative_score = 1.0 - prior_probability
+        for observation in self.observations:
+            observation_positives = self.alpha + observation[1]
+            observation_total = alpha_denominator + observation[0]
+            observation_negatives = observation_total - observation_positives
+            positive_score *= observation_positives / (self.prior_positives + alpha_denominator)
+            negative_score *= observation_negatives / (self.prior_negatives + alpha_denominator)
+        return positive_score / (positive_score + negative_score)</code></pre>
+</details>
+<h3>Methods</h3>
+<dl>
+<dt id="simphile.NaiveBayes.add_observation"><code class="name flex">
+<span>def <span class="ident">add_observation</span></span>(<span>self, total, positives)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>An observation is the total population and number of positives for a given category.
+For example,
+the total number of emails that contain "money" and the number of those emails that are spam.</p>
+<p>:param total: the total population count in the observation.
+For example the total number of emails that contain "money"</p>
+<p>:param positives: the number of positives in the population.
+For example the number of spam emails that contain "money"</p>
+<p>:return: True or False based on if the observation was significantly different from the prior likelihood</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def add_observation(self, total, positives):
+    &#34;&#34;&#34;
+    An observation is the total population and number of positives for a given category.  For example,
+    the total number of emails that contain &#34;money&#34; and the number of those emails that are spam.
+
+    :param total: the total population count in the observation.
+    For example the total number of emails that contain &#34;money&#34;
+
+    :param positives: the number of positives in the population.
+    For example the number of spam emails that contain &#34;money&#34;
+
+    :return: True or False based on if the observation was significantly different from the prior likelihood
+    &#34;&#34;&#34;
+    assert positives &lt;= total, &#34;must have positives &lt;= total&#34;
+    expectation = [self.prior_total, self.prior_positives]
+    observation = [total, positives]
+    table = [observation, expectation]
+    p_value = stats.fisher_exact(table)[1]
+    if self.observation_significance_threshold is None or p_value &lt;= self.observation_significance_threshold:
+        self.observations.append(observation)
+        return True   # observation added
+    else:
+        return False  # observation not added</code></pre>
+</details>
+</dd>
+<dt id="simphile.NaiveBayes.calculate_probability"><code class="name flex">
+<span>def <span class="ident">calculate_probability</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Given all the observations, uses Naive Bayes to calculate the probability
+( 0 to 1) that a specific instance is true</p>
+<p>:return: the probability ( 0 to 1) that a specific instance is true (e.g.
+that a specific email is spam)</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def calculate_probability(self):
+    &#34;&#34;&#34;
+    Given all the observations, uses Naive Bayes to calculate the probability
+    ( 0 to 1) that a specific instance is true
+
+    :return: the probability ( 0 to 1) that a specific instance is true (e.g.
+    that a specific email is spam)
+    &#34;&#34;&#34;
+    prior_probability = self.prior_positives / self.prior_total
+    alpha_denominator = self.alpha / prior_probability
+    positive_score = prior_probability
+    negative_score = 1.0 - prior_probability
+    for observation in self.observations:
+        observation_positives = self.alpha + observation[1]
+        observation_total = alpha_denominator + observation[0]
+        observation_negatives = observation_total - observation_positives
+        positive_score *= observation_positives / (self.prior_positives + alpha_denominator)
+        negative_score *= observation_negatives / (self.prior_negatives + alpha_denominator)
+    return positive_score / (positive_score + negative_score)</code></pre>
+</details>
+</dd>
+<dt id="simphile.NaiveBayes.set_alpha"><code class="name flex">
+<span>def <span class="ident">set_alpha</span></span>(<span>self, alpha)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>And alpha is a constant added to the positives to avoid zeros and generally smooths
+the results to avoid low-N and noisy samples throwing things off.
+Default alpha is 1.0.</p>
+<p>:param alpha: a number greater than 0</p>
+<p>:return:</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def set_alpha(self, alpha):
+    &#34;&#34;&#34;
+    And alpha is a constant added to the positives to avoid zeros and generally smooths
+    the results to avoid low-N and noisy samples throwing things off.  Default alpha is 1.0.
+
+    :param alpha: a number greater than 0
+
+    :return:
+    &#34;&#34;&#34;
+    assert alpha &gt;= 0
+    self.alpha = alpha</code></pre>
+</details>
+</dd>
+<dt id="simphile.NaiveBayes.set_observation_significance_threshold"><code class="name flex">
+<span>def <span class="ident">set_observation_significance_threshold</span></span>(<span>self, threshold)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Any observation (aka test) that does not pass the p-value threshold will
+not be incorporated into the final prediction.
+P-values are calculated
+with Fischer's Exact.
+For example, if priors are 1000 with 300 positives,
+an observation sample of 100 with 30 positives won't be added because
+it does not differ significantly from the priors.
+This keeps low value and
+potentially noisy observations out. The default threshold is 0.05</p>
+<p>:param threshold: can be a number between 0 and 0.5 or None</p>
+<p>:return:</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def set_observation_significance_threshold(self, threshold):
+    &#34;&#34;&#34;
+    Any observation (aka test) that does not pass the p-value threshold will
+    not be incorporated into the final prediction.  P-values are calculated
+    with Fischer&#39;s Exact.  For example, if priors are 1000 with 300 positives,
+    an observation sample of 100 with 30 positives won&#39;t be added because
+    it does not differ significantly from the priors.  This keeps low value and
+    potentially noisy observations out. The default threshold is 0.05
+
+    :param threshold: can be a number between 0 and 0.5 or None
+
+    :return:
+    &#34;&#34;&#34;
+    assert threshold is None or threshold &gt; 0
+    assert threshold is None or threshold &lt; 0.5
+    self.observation_significance_threshold = threshold</code></pre>
+</details>
+</dd>
+</dl>
+</dd>
+<dt id="simphile.TextProcessor"><code class="flex name class">
+<span>class <span class="ident">TextProcessor</span></span>
+<span>(</span><span>lowercase=False, only_alpha_numeric=False, adjacent_pairs=False)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>A TextProcessor has common cleaning and tokenization methods to ensure
+that strings are processed in a consistent way</p>
+<p>Constructor for TextProcessor
+:param lowercase:
+:param only_alpha_numeric:
+:param adjacent_pairs:</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class TextProcessor:
+    &#34;&#34;&#34;
+    A TextProcessor has common cleaning and tokenization methods to ensure
+    that strings are processed in a consistent way
+    &#34;&#34;&#34;
+
+    def __init__(self, lowercase=False, only_alpha_numeric=False, adjacent_pairs=False):
+        &#34;&#34;&#34;
+        Constructor for TextProcessor
+        :param lowercase:
+        :param only_alpha_numeric:
+        :param adjacent_pairs:
+        &#34;&#34;&#34;
+        self.lowercase = lowercase
+        self.only_alphabetic = only_alpha_numeric
+        self.adjacent_pairs = adjacent_pairs
+
+    def process(self, string):
+        &#34;&#34;&#34;
+        If processor has only_alphabetic as True, then replaces all non-alphabetic characters with a whitespace.
+        if processor has lowercase as True, it lowercases the string.
+
+        :param string:
+        :return: processed string
+        &#34;&#34;&#34;
+        result = string
+        if self.only_alphabetic:
+            result = text_utils.only_alphabetic(result)
+        if self.lowercase:
+            result = result.lower()
+        return result
+
+    def tokenize(self, string):
+        &#34;&#34;&#34;
+        First processes string then splits string into tokens by word
+        :param string:
+        :return: list containing tokens
+        &#34;&#34;&#34;
+        result = self.process(string)
+        result = result.split()
+        if self.adjacent_pairs:
+            result = text_utils.create_adjacent_pairs(result)
+        return result
+
+    def frequencies(self, string):
+        &#34;&#34;&#34;
+        First processes and tokenizes string into words.  Then returns a map of the occurrences count of tokens.
+        e.g. &#34;a b b&#34; yields {&#39;a&#39;: 1, &#39;b&#39;, 2}
+        :param string:
+        :return: Dictionary containing token frequencies
+        &#34;&#34;&#34;
+        tokens = self.tokenize(string)
+        frequencies = {}
+        for item in tokens:
+            if item in frequencies:
+                frequencies[item] += 1
+            else:
+                frequencies[item] = 1
+        return frequencies
+
+    def normalized_frequencies(self, string):
+        &#34;&#34;&#34;
+        Finds word frequencies in string, then treats all words as an axis and
+        divides all the counts by the magnitude of the resulting vector.
+        e.g. &#34;a b b&#34; yields {&#39;a&#39;: 0.4472135954999579, &#39;b&#39;: 0.8944271909999159}
+
+        :param string:
+        :return: Dictionary containing normalized token frequencies
+        &#34;&#34;&#34;
+        frequencies = self.frequencies(string)
+        sum = 0
+        for value in frequencies.values():
+            sum += value * value
+        magnitude = math.sqrt(sum)
+        normalized = {}
+        for key, value in frequencies.items():
+            normalized[key] = value / magnitude
+        return normalized</code></pre>
+</details>
+<h3>Methods</h3>
+<dl>
+<dt id="simphile.TextProcessor.frequencies"><code class="name flex">
+<span>def <span class="ident">frequencies</span></span>(<span>self, string)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>First processes and tokenizes string into words.
+Then returns a map of the occurrences count of tokens.
+e.g. "a b b" yields {'a': 1, 'b', 2}
+:param string:
+:return: Dictionary containing token frequencies</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def frequencies(self, string):
+    &#34;&#34;&#34;
+    First processes and tokenizes string into words.  Then returns a map of the occurrences count of tokens.
+    e.g. &#34;a b b&#34; yields {&#39;a&#39;: 1, &#39;b&#39;, 2}
+    :param string:
+    :return: Dictionary containing token frequencies
+    &#34;&#34;&#34;
+    tokens = self.tokenize(string)
+    frequencies = {}
+    for item in tokens:
+        if item in frequencies:
+            frequencies[item] += 1
+        else:
+            frequencies[item] = 1
+    return frequencies</code></pre>
+</details>
+</dd>
+<dt id="simphile.TextProcessor.normalized_frequencies"><code class="name flex">
+<span>def <span class="ident">normalized_frequencies</span></span>(<span>self, string)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Finds word frequencies in string, then treats all words as an axis and
+divides all the counts by the magnitude of the resulting vector.
+e.g. "a b b" yields {'a': 0.4472135954999579, 'b': 0.8944271909999159}</p>
+<p>:param string:
+:return: Dictionary containing normalized token frequencies</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def normalized_frequencies(self, string):
+    &#34;&#34;&#34;
+    Finds word frequencies in string, then treats all words as an axis and
+    divides all the counts by the magnitude of the resulting vector.
+    e.g. &#34;a b b&#34; yields {&#39;a&#39;: 0.4472135954999579, &#39;b&#39;: 0.8944271909999159}
+
+    :param string:
+    :return: Dictionary containing normalized token frequencies
+    &#34;&#34;&#34;
+    frequencies = self.frequencies(string)
+    sum = 0
+    for value in frequencies.values():
+        sum += value * value
+    magnitude = math.sqrt(sum)
+    normalized = {}
+    for key, value in frequencies.items():
+        normalized[key] = value / magnitude
+    return normalized</code></pre>
+</details>
+</dd>
+<dt id="simphile.TextProcessor.process"><code class="name flex">
+<span>def <span class="ident">process</span></span>(<span>self, string)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>If processor has only_alphabetic as True, then replaces all non-alphabetic characters with a whitespace.
+if processor has lowercase as True, it lowercases the string.</p>
+<p>:param string:
+:return: processed string</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def process(self, string):
+    &#34;&#34;&#34;
+    If processor has only_alphabetic as True, then replaces all non-alphabetic characters with a whitespace.
+    if processor has lowercase as True, it lowercases the string.
+
+    :param string:
+    :return: processed string
+    &#34;&#34;&#34;
+    result = string
+    if self.only_alphabetic:
+        result = text_utils.only_alphabetic(result)
+    if self.lowercase:
+        result = result.lower()
+    return result</code></pre>
+</details>
+</dd>
+<dt id="simphile.TextProcessor.tokenize"><code class="name flex">
+<span>def <span class="ident">tokenize</span></span>(<span>self, string)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>First processes string then splits string into tokens by word
+:param string:
+:return: list containing tokens</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def tokenize(self, string):
+    &#34;&#34;&#34;
+    First processes string then splits string into tokens by word
+    :param string:
+    :return: list containing tokens
+    &#34;&#34;&#34;
+    result = self.process(string)
+    result = result.split()
+    if self.adjacent_pairs:
+        result = text_utils.create_adjacent_pairs(result)
+    return result</code></pre>
+</details>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+</article>
+<nav id="sidebar">
+<h1>Index</h1>
+<div class="toc">
+<ul>
+<li><a href="#install">Install</a></li>
+<li><a href="#about">About</a></li>
+</ul>
+</div>
+<ul id="index">
+<li><h3><a href="#header-submodules">Sub-modules</a></h3>
+<ul>
+<li><code><a title="simphile.naive_bayes" href="naive_bayes.html">simphile.naive_bayes</a></code></li>
+<li><code><a title="simphile.sets" href="sets.html">simphile.sets</a></code></li>
+<li><code><a title="simphile.text_processor" href="text_processor.html">simphile.text_processor</a></code></li>
+<li><code><a title="simphile.text_utils" href="text_utils.html">simphile.text_utils</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-functions">Functions</a></h3>
+<ul class="">
+<li><code><a title="simphile.compression_similarity" href="#simphile.compression_similarity">compression_similarity</a></code></li>
+<li><code><a title="simphile.euclidian_similarity" href="#simphile.euclidian_similarity">euclidian_similarity</a></code></li>
+<li><code><a title="simphile.jaccard_similarity" href="#simphile.jaccard_similarity">jaccard_similarity</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="simphile.CompressionSimilarity" href="#simphile.CompressionSimilarity">CompressionSimilarity</a></code></h4>
+<ul class="">
+<li><code><a title="simphile.CompressionSimilarity.score" href="#simphile.CompressionSimilarity.score">score</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="simphile.EuclidianSimilarity" href="#simphile.EuclidianSimilarity">EuclidianSimilarity</a></code></h4>
+<ul class="">
+<li><code><a title="simphile.EuclidianSimilarity.score" href="#simphile.EuclidianSimilarity.score">score</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="simphile.JaccardSimilarity" href="#simphile.JaccardSimilarity">JaccardSimilarity</a></code></h4>
+<ul class="">
+<li><code><a title="simphile.JaccardSimilarity.score" href="#simphile.JaccardSimilarity.score">score</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="simphile.NaiveBayes" href="#simphile.NaiveBayes">NaiveBayes</a></code></h4>
+<ul class="">
+<li><code><a title="simphile.NaiveBayes.add_observation" href="#simphile.NaiveBayes.add_observation">add_observation</a></code></li>
+<li><code><a title="simphile.NaiveBayes.calculate_probability" href="#simphile.NaiveBayes.calculate_probability">calculate_probability</a></code></li>
+<li><code><a title="simphile.NaiveBayes.set_alpha" href="#simphile.NaiveBayes.set_alpha">set_alpha</a></code></li>
+<li><code><a title="simphile.NaiveBayes.set_observation_significance_threshold" href="#simphile.NaiveBayes.set_observation_significance_threshold">set_observation_significance_threshold</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="simphile.TextProcessor" href="#simphile.TextProcessor">TextProcessor</a></code></h4>
+<ul class="">
+<li><code><a title="simphile.TextProcessor.frequencies" href="#simphile.TextProcessor.frequencies">frequencies</a></code></li>
+<li><code><a title="simphile.TextProcessor.normalized_frequencies" href="#simphile.TextProcessor.normalized_frequencies">normalized_frequencies</a></code></li>
+<li><code><a title="simphile.TextProcessor.process" href="#simphile.TextProcessor.process">process</a></code></li>
+<li><code><a title="simphile.TextProcessor.tokenize" href="#simphile.TextProcessor.tokenize">tokenize</a></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc" title="pdoc: Python API documentation generator"><cite>pdoc</cite> 0.10.0</a>.</p>
+</footer>
+</body>
+</html>
