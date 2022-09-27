@@ -28,7 +28,7 @@ class JaccardSimilarity:
         """
         list_a = self.reference
         list_b = self.text_processor.tokenize(comparison)
-        jaccard_list_similarity(list_a, list_b)
+        return jaccard_list_similarity(list_a, list_b)
 
 
 def jaccard_similarity(string_a, string_b):
