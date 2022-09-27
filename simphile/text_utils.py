@@ -9,18 +9,27 @@ common_english_words = [
 ]
 
 
-# a common method to apply to both web and the training data
-def only_alpha_numeric(text):
+def only_alphabetic(text):
+    """
+    Removes all non-alphabetic characters and replaces with spaces.
+    Multiple adjacent spaces are reduced to one.
+    :param text:
+    :return:
+    """
     text = regex.sub(' ', text)
     # removing multiple spaces
     text = re.sub(' +', ' ', text)
     return text
 
 
-# example:
-# input: ["one", "two", "three"]
-# output: ["onetwo", "twothree"]
 def create_adjacent_pairs(list):
+    """
+    example:
+        input: ["one", "two", "three"]
+        output: ["onetwo", "twothree"]
+    :param list:
+    :return:
+    """
     out = []
     for i, element in enumerate(list):
         if i > 0:
