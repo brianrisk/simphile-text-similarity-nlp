@@ -28,16 +28,20 @@ class JaccardSimilarity:
         """
         list_a = self.reference
         list_b = self.text_processor.tokenize(comparison)
-        assert len(list_a) > 0 or len(list_b > 0), "at least one list needs to have elements"
-        intersected = intersect(list_a, list_b)
-        combined = list_a + list_b
-        # did not use the union function for efficiency in sets.  Union also calculates intersection,
-        # so we don't want to duplicate that processing
-        unioned = minus(combined, intersected)
-        return len(intersected) / len(unioned)
+        jaccard_list_similarity(list_a, list_b)
 
 
 def jaccard_similarity(string_a, string_b):
     obj = JaccardSimilarity(string_a)
     return obj.score(string_b)
+
+
+def jaccard_list_similarity(list_a, list_b):
+    assert len(list_a) > 0 or len(list_b > 0), "at least one list needs to have elements"
+    intersected = intersect(list_a, list_b)
+    combined = list_a + list_b
+    # did not use the union function for efficiency in sets.  Union also calculates intersection,
+    # so we don't want to duplicate that processing
+    unioned = minus(combined, intersected)
+    return len(intersected) / len(unioned)
 

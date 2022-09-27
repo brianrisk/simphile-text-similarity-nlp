@@ -18,7 +18,7 @@ from .text_processor import TextProcessor
 from .naive_bayes import NaiveBayes
 from .compression_similarity import compression_similarity, CompressionSimilarity
 from .euclidian_similarity import euclidian_similarity, EuclidianSimilarity
-from .jaccard_similarity import jaccard_similarity, JaccardSimilarity
+from .jaccard_similarity import jaccard_similarity, jaccard_list_similarity, JaccardSimilarity
 
 __all__ = [
     "sets",
@@ -30,5 +30,6 @@ __all__ = [
     "euclidian_similarity",
     "EuclidianSimilarity",
     "jaccard_similarity",
+    "jaccard_list_similarity",
     "JaccardSimilarity"
 ]

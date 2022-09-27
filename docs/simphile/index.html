@@ -60,7 +60,7 @@ from .text_processor import TextProcessor
 from .naive_bayes import NaiveBayes
 from .compression_similarity import compression_similarity, CompressionSimilarity
 from .euclidian_similarity import euclidian_similarity, EuclidianSimilarity
-from .jaccard_similarity import jaccard_similarity, JaccardSimilarity
+from .jaccard_similarity import jaccard_similarity, jaccard_list_similarity, JaccardSimilarity
 
 __all__ = [
     &#34;sets&#34;,
@@ -72,6 +72,7 @@ __all__ = [
     &#34;euclidian_similarity&#34;,
     &#34;EuclidianSimilarity&#34;,
     &#34;jaccard_similarity&#34;,
+    &#34;jaccard_list_similarity&#34;,
     &#34;JaccardSimilarity&#34;
 ]</code></pre>
 </details>
@@ -128,6 +129,25 @@ __all__ = [
 <pre><code class="python">def euclidian_similarity(string_a, string_b):
     obj = EuclidianSimilarity(string_a)
     return obj.score(string_b)</code></pre>
+</details>
+</dd>
+<dt id="simphile.jaccard_list_similarity"><code class="name flex">
+<span>def <span class="ident">jaccard_list_similarity</span></span>(<span>list_a, list_b)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def jaccard_list_similarity(list_a, list_b):
+    assert len(list_a) &gt; 0 or len(list_b &gt; 0), &#34;at least one list needs to have elements&#34;
+    intersected = intersect(list_a, list_b)
+    combined = list_a + list_b
+    # did not use the union function for efficiency in sets.  Union also calculates intersection,
+    # so we don&#39;t want to duplicate that processing
+    unioned = minus(combined, intersected)
+    return len(intersected) / len(unioned)</code></pre>
 </details>
 </dd>
 <dt id="simphile.jaccard_similarity"><code class="name flex">
@@ -397,13 +417,7 @@ comparing one string to many other strings</p>
         &#34;&#34;&#34;
         list_a = self.reference
         list_b = self.text_processor.tokenize(comparison)
-        assert len(list_a) &gt; 0 or len(list_b &gt; 0), &#34;at least one list needs to have elements&#34;
-        intersected = intersect(list_a, list_b)
-        combined = list_a + list_b
-        # did not use the union function for efficiency in sets.  Union also calculates intersection,
-        # so we don&#39;t want to duplicate that processing
-        unioned = minus(combined, intersected)
-        return len(intersected) / len(unioned)</code></pre>
+        jaccard_list_similarity(list_a, list_b)</code></pre>
 </details>
 <h3>Methods</h3>
 <dl>
@@ -430,13 +444,7 @@ to the reference string supplied in the initialization</p>
     &#34;&#34;&#34;
     list_a = self.reference
     list_b = self.text_processor.tokenize(comparison)
-    assert len(list_a) &gt; 0 or len(list_b &gt; 0), &#34;at least one list needs to have elements&#34;
-    intersected = intersect(list_a, list_b)
-    combined = list_a + list_b
-    # did not use the union function for efficiency in sets.  Union also calculates intersection,
-    # so we don&#39;t want to duplicate that processing
-    unioned = minus(combined, intersected)
-    return len(intersected) / len(unioned)</code></pre>
+    jaccard_list_similarity(list_a, list_b)</code></pre>
 </details>
 </dd>
 </dl>
@@ -926,6 +934,7 @@ if processor has lowercase as True, it lowercases the string.</p>
 <ul class="">
 <li><code><a title="simphile.compression_similarity" href="#simphile.compression_similarity">compression_similarity</a></code></li>
 <li><code><a title="simphile.euclidian_similarity" href="#simphile.euclidian_similarity">euclidian_similarity</a></code></li>
+<li><code><a title="simphile.jaccard_list_similarity" href="#simphile.jaccard_list_similarity">jaccard_list_similarity</a></code></li>
 <li><code><a title="simphile.jaccard_similarity" href="#simphile.jaccard_similarity">jaccard_similarity</a></code></li>
 </ul>
 </li>

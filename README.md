@@ -10,6 +10,26 @@
 
 </div>
 
+## Install
+```bash
+pip install simphile
+```
+
+## Usage
+
+```python
+from simphile import jaccard_similarity, euclidian_similarity, compression_similarity
+
+text_a = "I love dogs"
+text_b = "I love cats"
+
+print(f"Jaccard Similarity: {jaccard_similarity(text_a, text_b)}")
+print(f"Euclidian Similarity: {euclidian_similarity(text_a, text_b)}")
+print(f"Compression Similarity: {compression_similarity(text_a, text_b)}")
+```
+
+
+## About
 Sim•phile = "the love of similarities"
 
 The aim is to proved easy access to text similairty metods that are language-agnostic and (ideally) much 
@@ -26,16 +46,13 @@ faster in execution time than methods that employ text embeddings.
 * non-language comparisons (e.g. URL clustering)
 * language detection (e.g. compare a text to Spanish, English, French, etc. lexicons and return match with highest score)
 
-### Usage:
-
-```pip install simphile```
-
 ## Documentation
 [Simphile text similarity documentation](https://brianrisk.github.io/simphile/index.html)
 
 ## E-Z ways to help
 * Give this repo a ⭐️
-* [Vote up this answer](https://stackoverflow.com/questions/46975929/how-can-i-calculate-the-jaccard-similarity-of-two-lists-containing-strings-in-py) on Stack Overflow!
+* [Vote up this answer](https://stackoverflow.com/a/73873869/2595659) on Stack Overflow!
+
 
 ## Brief Explanations
 
