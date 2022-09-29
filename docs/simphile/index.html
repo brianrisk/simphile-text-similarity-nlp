@@ -417,7 +417,7 @@ comparing one string to many other strings</p>
         &#34;&#34;&#34;
         list_a = self.reference
         list_b = self.text_processor.tokenize(comparison)
-        jaccard_list_similarity(list_a, list_b)</code></pre>
+        return jaccard_list_similarity(list_a, list_b)</code></pre>
 </details>
 <h3>Methods</h3>
 <dl>
@@ -444,7 +444,7 @@ to the reference string supplied in the initialization</p>
     &#34;&#34;&#34;
     list_a = self.reference
     list_b = self.text_processor.tokenize(comparison)
-    jaccard_list_similarity(list_a, list_b)</code></pre>
+    return jaccard_list_similarity(list_a, list_b)</code></pre>
 </details>
 </dd>
 </dl>

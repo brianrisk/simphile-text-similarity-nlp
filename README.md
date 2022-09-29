@@ -27,12 +27,17 @@ print(f"Jaccard Similarity: {jaccard_similarity(text_a, text_b)}")
 print(f"Euclidian Similarity: {euclidian_similarity(text_a, text_b)}")
 print(f"Compression Similarity: {compression_similarity(text_a, text_b)}")
 ```
-
+Output:
+```
+Jaccard Similarity: 0.5
+Euclidian Similarity: 0.5917517095361369
+Compression Similarity: 0.6842105263157894
+```
 
 ## About
 Sim•phile = "the love of similarities"
 
-The aim is to proved easy access to text similairty metods that are language-agnostic and (ideally) much 
+The aim is to proved easy access to text similarity methods that are language-agnostic and (ideally) much 
 faster in execution time than methods that employ text embeddings.
 
 * **Compression Similairty** – leverages the pattern recognition of compression algorithms
@@ -80,7 +85,6 @@ types of pet owners, but using sets would see that as {"dog", "cat"} and another
 This imeplementation of Jaccard uses set arithmetic on lists.
 
 Further Reading:
-* [Vote up this answer](https://stackoverflow.com/questions/46975929/how-can-i-calculate-the-jaccard-similarity-of-two-lists-containing-strings-in-py) on Stack Overflow!
 * [Jaccard Index on Wikipedia](https://en.wikipedia.org/wiki/Jaccard_index)
 
 
