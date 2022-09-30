@@ -54,14 +54,14 @@ processor = TextProcessor(lowercase=True, only_alphabetic=True)
 comparator = JaccardSimilarity(reference, processor)
 # scoring the reference to each string in the `comparisons` list
 for comparison in comparisons:
-    print(comparator.score(comparison))
+    print(f"{comparison}: {comparator.score(comparison)}")
 ```
 Output:
 ```
-0.09090909090909091
-0.058823529411764705
-0.38461538461538464
-0.5454545454545454
+I love dogs: 0.09090909090909091
+A fox. And a dog. Could never... be friends: 0.058823529411764705
+The LAZY DOG was annoyed by the QUICK FOX, 0.38461538461538464
+the quick dogs ran over the 23 brown carpets: 0.5454545454545454
 ```
 
 
