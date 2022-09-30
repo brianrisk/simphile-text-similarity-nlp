@@ -16,5 +16,5 @@ class TestTextProcessor(unittest.TestCase):
     def test_process(self):
         p = TextProcessor(lowercase=True)
         self.assertEqual("a", p.process("A"))
-        p = TextProcessor(only_alpha_numeric=True)
+        p = TextProcessor(only_alphabetic=True)
         self.assertEqual("a b", p.process("a*#$%^&.,/1b"))

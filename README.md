@@ -16,7 +16,7 @@ pip install simphile
 ```
 
 ## Usage
-
+Just use comparison functions to get started quickly:
 ```python
 from simphile import jaccard_similarity, euclidian_similarity, compression_similarity
 
@@ -34,6 +34,37 @@ Euclidian Similarity: 0.5917517095361369
 Compression Similarity: 0.6842105263157894
 ```
 
+When you need to compare one reference text to many, it's more effecient to
+set up a comparison object with that text
+
+```python
+from simphile import JaccardSimilarity, TextProcessor
+
+reference = "the quick brown fox jumped over the lazy dogs"
+comparisons = [
+    "I love dogs",
+    "A fox. And a dog. Could never... be friends",
+    "The LAZY DOG was annoyed by the QUICK FOX",
+    "the quick dogs ran over the 23 brown carpets"
+]
+# TextProcessor applies the same cleaning logic to all text
+processor = TextProcessor(lowercase=True, only_alphabetic=True)
+# using JaccardSimilarity, but code is exactly the same with 
+# CompressionSimilarity and EuclidianSimilarity
+comparator = JaccardSimilarity(reference, processor)
+# scoring the reference to each string in the `comparisons` list
+for comparison in comparisons:
+    print(comparator.score(comparison))
+```
+Output:
+```
+0.09090909090909091
+0.058823529411764705
+0.38461538461538464
+0.5454545454545454
+```
+
+
 ## About
 Sim•phile = "the love of similarities"
 
@@ -41,12 +72,12 @@ The aim is to proved easy access to text similarity methods that are language-ag
 faster in execution time than methods that employ text embeddings.
 
 * **Compression Similairty** – leverages the pattern recognition of compression algorithms
-* **Euclidian Similarity** – Treating text like points in multi-dimensional space and calculating their closeness
+* **Euclidian Similarity** – Treats text like points in multi-dimensional space and calculates their closeness
 * **Jaccard Similairy** – Texts are more similar the more their words overlap
 
 ### Use Cases:
 * When speed is required
-  * as fast pre-filters of results to reduce the set then fed to more CPU-intensive methods (e.g. embeddings)
+  * fast pre-filters:  Reduce a set of 10,000,000 text to the top 1000 then score those with CPU-intensive methods
 * when language is unknown
 * non-language comparisons (e.g. URL clustering)
 * language detection (e.g. compare a text to Spanish, English, French, etc. lexicons and return match with highest score)
@@ -56,7 +87,9 @@ faster in execution time than methods that employ text embeddings.
 
 ## E-Z ways to help
 * Give this repo a ⭐️
-* [Vote up this answer](https://stackoverflow.com/a/73873869/2595659) on Stack Overflow!
+* Vote up these answers on Stack Overflow 👍:
+  * [How to compute the similarity between two text documents?](https://stackoverflow.com/a/73908280/2595659)
+  * [How can I calculate the Jaccard Similarity of two lists containing strings in Python?](https://stackoverflow.com/a/73873869/2595659)
 
 
 ## Brief Explanations
@@ -89,6 +122,9 @@ Further Reading:
 
 
 ### Euclidian Similarity
-
+![Euclidian Distance](https://www.gstatic.com/education/formulas2/472522532/en/euclidean_distance.svg)
+Treats tokenized words like dimensions and strings as normalized
+points in this multi-dimensional space and uses the above formula
+to calculate the distance between the two points being compared.
 
 

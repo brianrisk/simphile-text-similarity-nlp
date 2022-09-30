@@ -9,15 +9,15 @@ class TextProcessor:
     that strings are processed in a consistent way
     """
 
-    def __init__(self, lowercase=False, only_alpha_numeric=False, adjacent_pairs=False):
+    def __init__(self, lowercase=False, only_alphabetic=False, adjacent_pairs=False):
         """
         Constructor for TextProcessor
         :param lowercase:
-        :param only_alpha_numeric:
+        :param only_alphabetic:
         :param adjacent_pairs:
         """
         self.lowercase = lowercase
-        self.only_alphabetic = only_alpha_numeric
+        self.only_alphabetic = only_alphabetic
         self.adjacent_pairs = adjacent_pairs
 
     def process(self, string):
