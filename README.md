@@ -96,8 +96,7 @@ This is a world where the more popular something is, the more quickly it improve
 * Vote up these answers on Stack Overflow 👍:
   * [How to compute the similarity between two text documents?](https://stackoverflow.com/a/73908280/2595659)
   * [How can I calculate the Jaccard Similarity of two lists containing strings in Python?](https://stackoverflow.com/a/73873869/2595659)
-  * [Ways of obtaining a similarity metric between two full text documents?](https://stackoverflow.com/a/73908547/2595659)
-
+* Vote up the [Reddit post](https://www.reddit.com/r/LanguageTechnology/comments/xs11mx/new_python_text_similarity_package/)
 
 ## Brief Explanations
 
