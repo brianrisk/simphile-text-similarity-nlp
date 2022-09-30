@@ -37,15 +37,15 @@ class TextProcessor:
     that strings are processed in a consistent way
     &#34;&#34;&#34;
 
-    def __init__(self, lowercase=False, only_alpha_numeric=False, adjacent_pairs=False):
+    def __init__(self, lowercase=False, only_alphabetic=False, adjacent_pairs=False):
         &#34;&#34;&#34;
         Constructor for TextProcessor
         :param lowercase:
-        :param only_alpha_numeric:
+        :param only_alphabetic:
         :param adjacent_pairs:
         &#34;&#34;&#34;
         self.lowercase = lowercase
-        self.only_alphabetic = only_alpha_numeric
+        self.only_alphabetic = only_alphabetic
         self.adjacent_pairs = adjacent_pairs
 
     def process(self, string):
@@ -122,14 +122,14 @@ class TextProcessor:
 <dl>
 <dt id="simphile.text_processor.TextProcessor"><code class="flex name class">
 <span>class <span class="ident">TextProcessor</span></span>
-<span>(</span><span>lowercase=False, only_alpha_numeric=False, adjacent_pairs=False)</span>
+<span>(</span><span>lowercase=False, only_alphabetic=False, adjacent_pairs=False)</span>
 </code></dt>
 <dd>
 <div class="desc"><p>A TextProcessor has common cleaning and tokenization methods to ensure
 that strings are processed in a consistent way</p>
 <p>Constructor for TextProcessor
 :param lowercase:
-:param only_alpha_numeric:
+:param only_alphabetic:
 :param adjacent_pairs:</p></div>
 <details class="source">
 <summary>
@@ -141,15 +141,15 @@ that strings are processed in a consistent way</p>
     that strings are processed in a consistent way
     &#34;&#34;&#34;
 
-    def __init__(self, lowercase=False, only_alpha_numeric=False, adjacent_pairs=False):
+    def __init__(self, lowercase=False, only_alphabetic=False, adjacent_pairs=False):
         &#34;&#34;&#34;
         Constructor for TextProcessor
         :param lowercase:
-        :param only_alpha_numeric:
+        :param only_alphabetic:
         :param adjacent_pairs:
         &#34;&#34;&#34;
         self.lowercase = lowercase
-        self.only_alphabetic = only_alpha_numeric
+        self.only_alphabetic = only_alphabetic
         self.adjacent_pairs = adjacent_pairs
 
     def process(self, string):
