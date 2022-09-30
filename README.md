@@ -105,7 +105,11 @@ the patterns that it found in text_a to also decently compress text_b, then that
 there are similar patterns in both files.  The crux of the similarity score is computed
 akin to this pseudocode example:
 
-```length(compress(concatenate(text_a, text_b))) / (length(compress(text_a)) + length(compress(text_b)))```
+```
+numerator = length(compress(concatenate(text_a, text_b)))
+denominator = length(compress(text_a)) + length(compress(text_b))
+score = numerator / denominator
+```
 
 Further Reading:
 * ["The Similarity Metric"](https://ieeexplore.ieee.org/abstract/document/1362909) - the origin of this method
