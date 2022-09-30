@@ -82,6 +82,9 @@ faster in execution time than methods that employ text embeddings.
 * non-language comparisons (e.g. URL clustering)
 * language detection (e.g. compare a text to Spanish, English, French, etc. lexicons and return match with highest score)
 
+## Work with me!
+My group is hiring two data scientists.  [Contact me on LinkedIn](https://www.linkedin.com/in/brianrisk/) about the positions
+
 ## Documentation
 [Simphile text similarity documentation](https://brianrisk.github.io/simphile/index.html)
 
