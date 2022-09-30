@@ -85,11 +85,15 @@ faster in execution time than methods that employ text embeddings.
 ## Documentation
 [Simphile text similarity documentation](https://brianrisk.github.io/simphile/index.html)
 
+The /examples directory contains working code examples.
+
 ## E-Z ways to help
+This is a world where the more popular something is, the more quickly it improves.  Help get the word out:
 * Give this repo a ⭐️
 * Vote up these answers on Stack Overflow 👍:
   * [How to compute the similarity between two text documents?](https://stackoverflow.com/a/73908280/2595659)
   * [How can I calculate the Jaccard Similarity of two lists containing strings in Python?](https://stackoverflow.com/a/73873869/2595659)
+  * [Ways of obtaining a similarity metric between two full text documents?](https://stackoverflow.com/a/73908547/2595659)
 
 
 ## Brief Explanations
