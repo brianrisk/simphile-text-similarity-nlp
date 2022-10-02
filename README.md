@@ -23,15 +23,15 @@ from simphile import jaccard_similarity, euclidian_similarity, compression_simil
 text_a = "I love dogs"
 text_b = "I love cats"
 
-print(f"Jaccard Similarity: {jaccard_similarity(text_a, text_b)}")
-print(f"Euclidian Similarity: {euclidian_similarity(text_a, text_b)}")
-print(f"Compression Similarity: {compression_similarity(text_a, text_b)}")
+print(f"Jaccard: {jaccard_similarity(text_a, text_b)}")
+print(f"Euclidian: {euclidian_similarity(text_a, text_b)}")
+print(f"Compression: {compression_similarity(text_a, text_b)}")
 ```
 Output:
 ```
-Jaccard Similarity: 0.5
-Euclidian Similarity: 0.5917517095361369
-Compression Similarity: 0.6842105263157894
+Jaccard: 0.5
+Euclidian: 0.5917517095361369
+Compression: 0.6842105263157894
 ```
 
 When you need to compare one reference text to many, it's more effecient to
@@ -133,6 +133,7 @@ Further Reading:
 
 ### Euclidian Similarity
 ![Euclidian Distance](https://www.gstatic.com/education/formulas2/472522532/en/euclidean_distance.svg)
+
 Treats tokenized words like dimensions and strings as normalized
 points in this multi-dimensional space and uses the above formula
 to calculate the distance between the two points being compared.

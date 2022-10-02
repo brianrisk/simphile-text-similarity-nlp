@@ -7,9 +7,9 @@ Sim•phile = "the love of similarities"
 The aim is to proved easy access to text similairty metods that are language-agnostic and (ideally) much
 faster in execution time than methods that employ text embeddings.
 
-* **Compression Similairty** – leverages the pattern recognition of compression algorithms
+* **Compression Similarity** – leverages the pattern recognition of compression algorithms
 * **Euclidian Similarity** – Treating text like points in multi-dimensional space and calculating their closeness
-* **Jaccard Similairy** – Texts are more similar the more their words overlap
+* **Jaccard Similarity** – Texts are more similar the more their words overlap
 
 """
 from . import sets
