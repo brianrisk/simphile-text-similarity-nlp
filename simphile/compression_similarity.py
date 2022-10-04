@@ -33,7 +33,7 @@ class CompressionSimilarity:
         # Saving compression object with reference to avoid repeatedly compressing the same data
         self.in_progress_compression = compress
         self.partially_compressed_reference_len = len(partially_compressed_reference)
-        self.compressed_reference_len = len(partially_compressed_reference + compress.copy().flush())
+        self.compressed_reference_len = self.partially_compressed_reference_len + len(compress.copy().flush())
 
     def score(self, comparison):
         """
