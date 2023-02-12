@@ -68,7 +68,7 @@ the quick dogs ran over the 23 brown carpets: 0.5454545454545454
 ## About
 Sim•phile = "the love of similarities"
 
-The aim is to proved easy access to text similarity methods that are language-agnostic and (ideally) much 
+The aim is to provide easy access to text similarity methods that are language-agnostic and (ideally) much
 faster in execution time than methods that employ text embeddings.
 
 * **Compression Similairty** – leverages the pattern recognition of compression algorithms
