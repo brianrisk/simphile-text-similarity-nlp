@@ -37,7 +37,7 @@ def jaccard_similarity(string_a, string_b):
 
 
 def jaccard_list_similarity(list_a, list_b):
-    assert len(list_a) > 0 or len(list_b > 0), "at least one list needs to have elements"
+    assert (len(list_a) > 0 or len(list_b) > 0), "at least one list needs to have elements"
     intersected = intersect(list_a, list_b)
     combined = list_a + list_b
     # did not use the union function for efficiency in sets.  Union also calculates intersection,
