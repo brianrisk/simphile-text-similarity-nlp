@@ -13,6 +13,7 @@ permissions:
   contents: read
 
 jobs:
+  # Build the documentation and upload the static HTML files as an artifact
   build:
     runs-on: ubuntu-latest
     steps:
@@ -22,7 +23,6 @@ jobs:
         with:
           python-version: "3.10"
 
-      # Install project and docs generator
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
@@ -31,8 +31,9 @@ jobs:
 
       - name: Build docs with pdoc
         run: |
-          # Build HTML docs into docs/simphile (force overwrite)
-          pdoc --html simphile --output-dir docs --force
+          # pdoc generates HTML by default when an output directory is provided.
+          # Using `python -m pdoc` provides a consistent CLI across pdoc versions.
+          python -m pdoc --output-dir docs simphile
 
       - name: Deploy to GitHub Pages (gh-pages branch)
         uses: peaceiris/actions-gh-pages@v3
