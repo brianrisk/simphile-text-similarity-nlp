@@ -1,8 +1,10 @@
 .DS_Store
 .idea/
 env
+venv
 build
 dist
 simphile.egg-info
 testing.py
 notes.md
+__pycache__
