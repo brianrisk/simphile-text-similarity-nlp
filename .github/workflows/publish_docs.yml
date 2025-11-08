@@ -1,25 +1,22 @@
 name: Publish Docs
 
-# build the documentation whenever tests pass
 on:
   workflow_run:
     workflows: ["Tests"]
     branches: [master]
-    types:
-      - completed
+    types: [completed]
 
-# security: restrict permissions for CI jobs.
 permissions:
-  contents: read
+  contents: write
 
 jobs:
-  # Build the documentation and upload the static HTML files as an artifact
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
+
       - name: Set up Python
-        uses: actions/setup-python@v4
+        uses: actions/setup-python@v5
         with:
           python-version: "3.10"
 
@@ -31,8 +28,6 @@ jobs:
 
       - name: Build docs with pdoc
         run: |
-          # pdoc generates HTML by default when an output directory is provided.
-          # Using `python -m pdoc` provides a consistent CLI across pdoc versions.
           python -m pdoc --output-dir docs simphile
 
       - name: Deploy to GitHub Pages (gh-pages branch)
