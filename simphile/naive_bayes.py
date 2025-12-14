@@ -1,4 +1,4 @@
-from scipy import stats
+from .fisher import fisher_exact
 
 
 class NaiveBayes:
@@ -67,7 +67,7 @@ class NaiveBayes:
         expectation = [self.prior_total, self.prior_positives]
         observation = [total, positives]
         table = [observation, expectation]
-        p_value = stats.fisher_exact(table)[1]
+        p_value = fisher_exact(table)[1]
         if self.observation_significance_threshold is None or p_value <= self.observation_significance_threshold:
             self.observations.append(observation)
             return True   # observation added
