@@ -15,8 +15,8 @@
 pip install simphile
 ```
 
-## Usage
-Just use comparison functions to get started quickly:
+## Quick start
+Get started quickly with simple comparison functions:
 ```python
 from simphile import jaccard_similarity, euclidian_similarity, compression_similarity
 
@@ -27,41 +27,11 @@ print(f"Jaccard: {jaccard_similarity(text_a, text_b)}")
 print(f"Euclidian: {euclidian_similarity(text_a, text_b)}")
 print(f"Compression: {compression_similarity(text_a, text_b)}")
 ```
-Output:
+Output (higher score, better similarity):
 ```
 Jaccard: 0.5
 Euclidian: 0.5917517095361369
 Compression: 0.6842105263157894
-```
-
-When you need to compare one reference text to many, it's more effecient to
-set up a comparison object with that text
-
-```python
-from simphile import JaccardSimilarity, TextProcessor
-
-reference = "the quick brown fox jumped over the lazy dogs"
-comparisons = [
-    "I love dogs",
-    "A fox. And a dog. Could never... be friends",
-    "The LAZY DOG was annoyed by the QUICK FOX",
-    "the quick dogs ran over the 23 brown carpets"
-]
-# TextProcessor applies the same cleaning logic to all text
-processor = TextProcessor(lowercase=True, only_alphabetic=True)
-# using JaccardSimilarity, but code is exactly the same with 
-# CompressionSimilarity and EuclidianSimilarity
-comparator = JaccardSimilarity(reference, processor)
-# scoring the reference to each string in the `comparisons` list
-for comparison in comparisons:
-    print(f"{comparison}: {comparator.score(comparison)}")
-```
-Output:
-```
-I love dogs: 0.09090909090909091
-A fox. And a dog. Could never... be friends: 0.058823529411764705
-The LAZY DOG was annoyed by the QUICK FOX, 0.38461538461538464
-the quick dogs ran over the 23 brown carpets: 0.5454545454545454
 ```
 
 
@@ -71,16 +41,17 @@ Sim•phile = "the love of similarities"
 The aim is to provide easy access to text similarity methods that are language-agnostic and (ideally) much
 faster in execution time than methods that employ text embeddings.
 
-* **Compression Similairty** – leverages the pattern recognition of compression algorithms
+* **Compression Similairty** – leverages the pattern recognition of gzip compression; the better two strings compress together, the more patterns they share
 * **Euclidian Similarity** – Treats text like points in multi-dimensional space and calculates their closeness
 * **Jaccard Similairy** – Texts are more similar the more their words overlap
 
 ### Use Cases:
+This library is useful when:
 * When speed is required
   * fast pre-filters:  Reduce a set of 10,000,000 text to the top 1000 then score those with CPU-intensive methods
 * when language is unknown
 * non-language comparisons (e.g. URL clustering)
-* language detection (e.g. compare a text to Spanish, English, French, etc. lexicons and return match with highest score)
+* quick language detection (e.g. compare a text to Spanish, English, French, etc. lexicons and return match with highest score)
 
 ### Use Case Example: Language detection
 Here we're classifying the language of a string based on how closely it matches
@@ -120,14 +91,42 @@ In this example, the reference text would be classified as French
 as that language got the best score.
 
 
+### Multiple comparisons
+When you need to compare one reference text to many to find which of the many is most similar, it's more effecient to set up a comparison object with that text.
+
+```python
+from simphile import JaccardSimilarity, TextProcessor
+
+reference = "the quick brown fox jumped over the lazy dogs"
+comparisons = [
+    "I love dogs",
+    "A fox. And a dog. Could never... be friends",
+    "The LAZY DOG was annoyed by the QUICK FOX",
+    "the quick dogs ran over the 23 brown carpets"
+]
+# TextProcessor applies the same cleaning logic to all text
+processor = TextProcessor(lowercase=True, only_alphabetic=True)
+# using JaccardSimilarity, but code is exactly the same with 
+# CompressionSimilarity and EuclidianSimilarity
+comparator = JaccardSimilarity(reference, processor)
+# scoring the reference to each string in the `comparisons` list
+for comparison in comparisons:
+    print(f"{comparison}: {comparator.score(comparison)}")
+```
+Output:
+```
+I love dogs: 0.09090909090909091
+A fox. And a dog. Could never... be friends: 0.058823529411764705
+The LAZY DOG was annoyed by the QUICK FOX, 0.38461538461538464
+the quick dogs ran over the 23 brown carpets: 0.5454545454545454
+```
+
 
 ## Work with me!
 My group is hiring two data scientists.  [Contact me on LinkedIn](https://www.linkedin.com/in/brianrisk/) about the positions
 
 ## Documentation
-[Simphile text similarity documentation](https://brianrisk.github.io/simphile/index.html)
-
-The /examples directory contains working code examples.
+The `/examples` directory contains simple code examples.
 
 ## E-Z ways to help
 This is a world where the more popular something is, the more quickly it improves.  Help get the word out:
